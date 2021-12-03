@@ -1,0 +1,11 @@
+box1 = matricula
+box2 = Nome
+box3 = Email
+box4 = Telefone
+
+bt1 = Masculino
+bt2 = Feminino
+bt3 = Não Informar
+
+env1 = Enviar
+env2 = Exibir
