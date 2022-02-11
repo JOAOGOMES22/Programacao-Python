@@ -1,0 +1,32 @@
+---Primeira pagina---
+BTlog = Logar
+BTcad = Cadastrar
+BTrank = Ranking
+
+---Login---
+LineLog = login
+LinePass = senha
+BTLog1 = Logar
+BTBack = Voltar
+
+---Cadastro---
+LineName = Nome
+LineEm = Email
+LineUse = Usuario
+LinePas = Senha
+LinaPas2 = Senha2
+SexM = Masculino
+SexF = Feminino
+SexNF = Não Informado
+BTCad1 = Cadastrar
+BTBack = Voltar
+
+---Color---
+Fundo geral
+background-color: rgb(255, 185, 114);
+
+Fundo botoes
+background-color: rgb(255, 157, 0);
+
+Fonte 
+League Spartan

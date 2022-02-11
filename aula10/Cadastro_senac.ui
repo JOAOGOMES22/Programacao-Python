@@ -310,6 +310,7 @@ border-color: rgb(0, 0, 0);</string>
      <string>Não Informar</string>
     </property>
    </widget>
+   <zorder>bt3</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
    <zorder>label_3</zorder>
@@ -321,7 +322,6 @@ border-color: rgb(0, 0, 0);</string>
    <zorder>box4</zorder>
    <zorder>bt1</zorder>
    <zorder>bt2</zorder>
-   <zorder></zorder>
    <zorder>env2</zorder>
    <zorder>env1</zorder>
   </widget>
