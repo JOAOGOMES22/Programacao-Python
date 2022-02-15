@@ -36,7 +36,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../Downloads/Joana Game (1).png</pixmap>
+     <pixmap>imagens/Joana Game (1).png</pixmap>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

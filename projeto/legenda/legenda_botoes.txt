@@ -1,13 +1,12 @@
----Primeira pagina---
+---Pagina Principal---
 BTlog = Logar
 BTcad = Cadastrar
-BTrank = Ranking
 
 ---Login---
 LineLog = login
 LinePass = senha
 BTlog1 = Logar
-BTBack = Voltar
+BTback = Voltar
 
 ---Cadastro---
 LineName = Nome
@@ -23,6 +22,7 @@ BTBack = Voltar
 
 ---Jogos---
 jogo1 = Cobrinha
+jogo2 = Shooter
 
 
 ---Color---

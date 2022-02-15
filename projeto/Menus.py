@@ -1,7 +1,8 @@
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-import cobrinha
 import mysql.connector
+import Jogo_1_Snake
+import Jogo_2_Shooter
 
 
 
@@ -37,12 +38,16 @@ def logar():
 def voltar():
     login.close()
     principal.show()
+    
+def voltar2():
+    cadastro.close()
+    principal.show()
 
 def jogo1():
-    cobrinha.Snake()
+    Jogo_1_Snake.Snake()
 
-#def jogo2():
-    #shooter.App()
+def jogo2():
+    Jogo_2_Shooter.App()
 
 def cadastro_jogador():
     
@@ -80,15 +85,18 @@ def cadastro_jogador():
 
 
 app = QtWidgets.QApplication([])
-principal = uic.loadUi("pg1.ui")
+principal = uic.loadUi("PGPrincipal.ui")
 cadastro = uic.loadUi("PGcad.ui")
 login = uic.loadUi("PGLog.ui")
-game = uic.loadUi("jogos.ui")
+game = uic.loadUi("PGGame.ui")
 principal.BTcad.clicked.connect(pg_cad)
 principal.BTlog.clicked.connect(log)
 cadastro.BTCad1.clicked.connect(cadastro_jogador)
+cadastro.BTBack.clicked.connect(voltar2)
 login.BTlog1.clicked.connect(logar)
-game.jogo1.clicked.connect(cobrinha.Snake)
+login.BTback.clicked.connect(voltar)
+game.jogo1.clicked.connect(Jogo_1_Snake.Snake)
+game.jogo2.clicked.connect(Jogo_2_Shooter.App)
 
 
 principal.show()
