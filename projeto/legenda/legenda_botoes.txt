@@ -6,7 +6,7 @@ BTrank = Ranking
 ---Login---
 LineLog = login
 LinePass = senha
-BTLog1 = Logar
+BTlog1 = Logar
 BTBack = Voltar
 
 ---Cadastro---
@@ -20,6 +20,10 @@ SexF = Feminino
 SexNF = Não Informado
 BTCad1 = Cadastrar
 BTBack = Voltar
+
+---Jogos---
+jogo1 = Cobrinha
+
 
 ---Color---
 Fundo geral

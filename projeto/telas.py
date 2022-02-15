@@ -1,22 +1,19 @@
-"""
-Snake implemented with pyxel.
-
-This is the game of snake in pyxel version!
-
-Try and collect the tasty apples without running
-into the side or yourself.
-
-Controls are the arrow keys ← ↑ → ↓
-
-Q: Quit the game
-R: Restart the game
-
-Created by Marcus Croucher in 2018.
-"""
-
+from PyQt5 import uic, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from collections import deque, namedtuple
 from random import randint
+from PyQt5 import uic, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+import mysql.connector
 import pyxel
+
+
+banco = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = '1234',
+    database = 'cobrinha'
+)
 
 Point = namedtuple("Point", ["x", "y"])  # Convenience class for coordinates
 
@@ -51,15 +48,15 @@ START = Point(5, 5 + HEIGHT_SCORE)
 
 
 ###################
-# The game itself #
+#O jogo em si#
 ###################
 
 
 class Snake:
-    """The class that sets up and runs the game."""
+    """A classe que configura e executa o jogo."""
 
-    def __init__(self):
-        """Initiate pyxel, set up initial game variables, and run."""
+    def init(self):
+        """Inicie o pyxel, configure as variáveis ​​iniciais do jogo e execute."""
 
         pyxel.init(WIDTH, HEIGHT, title="Snake!", fps=10, capture_scale=4)
         define_sound_and_music()
@@ -67,7 +64,7 @@ class Snake:
         pyxel.run(self.update, self.draw)
 
     def reset(self):
-        """Initiate key variables (direction, snake, apple, score, etc.)"""
+        """Inicie variáveis-chave (direção, cobra, maçã, pontuação, etc.)"""
 
         self.direction = RIGHT
         self.snake = deque()
@@ -79,12 +76,12 @@ class Snake:
         pyxel.playm(0, loop=True)
 
     ##############
-    # Game logic #
+    # Lógica do Jogo #
     ##############
 
     def update(self):
-        """Update logic of game.
-        Updates the snake and checks for scoring/win condition."""
+        """Atualize a lógica do jogo.
+        Atualiza a cobra e verifica a condição de pontuação/vitória."""
 
         if not self.death:
             self.update_direction()
@@ -99,7 +96,7 @@ class Snake:
             self.reset()
 
     def update_direction(self):
-        """Watch the keys and change direction."""
+        """Observe as teclas e mude de direção."""
 
         if pyxel.btn(pyxel.KEY_UP):
             if self.direction is not DOWN:
@@ -115,7 +112,7 @@ class Snake:
                 self.direction = RIGHT
 
     def update_snake(self):
-        """Move the snake based on the direction."""
+        """Mova a cobra com base na direção."""
 
         old_head = self.snake[0]
         new_head = Point(old_head.x + self.direction.x, old_head.y + self.direction.y)
@@ -133,7 +130,7 @@ class Snake:
             pyxel.play(0, 0)
 
     def generate_apple(self):
-        """Generate an apple randomly."""
+        """Gerar uma maçã aleatoriamente."""
         snake_pixels = set(self.snake)
 
         self.apple = self.snake[0]
@@ -143,7 +140,7 @@ class Snake:
             self.apple = Point(x, y)
 
     def check_death(self):
-        """Check whether the snake has died (out of bounds or doubled up.)"""
+        """Verifique se a cobra morreu (fora dos limites ou dobrou)."""
 
         head = self.snake[0]
         if head.x < 0 or head.y < HEIGHT_SCORE or head.x >= WIDTH or head.y >= HEIGHT:
@@ -152,18 +149,18 @@ class Snake:
             self.death_event()
 
     def death_event(self):
-        """Kill the game (bring up end screen)."""
+        """Mate o jogo (exiba a tela final)."""
         self.death = True  # Check having run into self
 
         pyxel.stop()
         pyxel.play(0, 1)
 
     ##############
-    # Draw logic #
+    # Lógica do Desenho #
     ##############
 
     def draw(self):
-        """Draw the background, snake, score, and apple OR the end screen."""
+        """Desenhe o plano de fundo, cobra, pontuação e maçã OU a tela final."""
 
         if not self.death:
             pyxel.cls(col=COL_BACKGROUND)
@@ -175,7 +172,7 @@ class Snake:
             self.draw_death()
 
     def draw_snake(self):
-        """Draw the snake with a distinct head by iterating through deque."""
+        """Desenhe a cobra com uma cabeça distinta repetindo o deque."""
 
         for i, point in enumerate(self.snake):
             if i == 0:
@@ -185,14 +182,14 @@ class Snake:
             pyxel.pset(point.x, point.y, col=colour)
 
     def draw_score(self):
-        """Draw the score at the top."""
+        """Desenhe a pontuação no topo."""
 
         score = f"{self.score:04}"
         pyxel.rect(0, 0, WIDTH, HEIGHT_SCORE, COL_SCORE_BACKGROUND)
         pyxel.text(1, 1, score, COL_SCORE)
 
     def draw_death(self):
-        """Draw a blank screen with some text."""
+        """Desenhe uma tela em branco com algum texto."""
 
         pyxel.cls(col=COL_DEATH)
         display_text = TEXT_DEATH[:]
@@ -211,12 +208,12 @@ class Snake:
 
 
 ###########################
-# Music and sound effects #
+# Música e Efeitos Sonoros #
 ###########################
 
 
 def define_sound_and_music():
-    """Define sound and music."""
+    """Defini MUSICAS E SOM."""
 
     # Sound effects
     pyxel.sound(0).set(
@@ -282,4 +279,86 @@ def define_sound_and_music():
     )
 
     pyxel.music(0).set([], [2], [3], [4])
+
+
+
+def log():
+    principal.close()
+    login.show()
+
+def pg_cad():
+    principal.close()
+    cadastro.show()
+
+def logar():
+    usuario = login.lineLog.text()
+    senha = login.linePass.text()
+    sql = "select senha_player from jogadores where usuario_player = '{}'".format(usuario)
+    conexao = banco.cursor()
+    conexao.execute(sql)
+    senha_db = conexao.fetchall()
+    if senha == senha_db[0][0]:
+        login.close()
+        game.show()
+    else:
+        QMessageBox.about(login, 'Erro', 'Usuario e/ou senha incorretos!')
+
+def voltar():
+    login.close()
+    principal.show()
+
+def jogo1():
+    Snake()
+    game.show()
+
+def cadastro_jogador():
+    
+    nome = cadastro.LineName.text()
+    email = cadastro.LineEm.text()
+    usuario = cadastro.LineUse.text()
+    senha = cadastro.LinePas.text()
+    senha2 = cadastro.LinePas2.text()
+
+    if senha != senha2: 
+         QMessageBox.about(cadastro, "Atenção!", "senhas não compativeis.")
+        
+    sexo = ''
+    if cadastro.SexM.isChecked():
+        sexo = 'Masculino'
+    elif cadastro.SexF.isChecked(): 
+        sexo = 'Feminino'
+    elif cadastro.SexNF.isChecked():
+        sexo = 'Nao Informado'
+
+    cursor = banco.cursor() 
+    sql= "INSERT INTO jogadores(nome_player, email_player, usuario_player, senha_player, genero_player)" "VALUES(%s,%s,%s,%s,%s)"
+    colunas = (str(nome), str(email), str(usuario), str(senha), sexo)
+    cursor.execute(sql, colunas)
+    banco.commit()
+
+    #QMessageBox.about(cadastro, "Sucesso!", "Cadastrado com sucesso")
+
+    cadastro.LineName.setText('')
+    cadastro.LineEm.setText('')
+    cadastro.LineUse.setText('')
+    cadastro.LinePas.setText('')
+    cadastro.LinePas2.setText('')
+    
+
+
+app = QtWidgets.QApplication([])
+principal = uic.loadUi("pg1.ui")
+cadastro = uic.loadUi("PGcad.ui")
+login = uic.loadUi("PGLog.ui")
+game = uic.loadUi("jogos.ui")
+principal.BTcad.clicked.connect(pg_cad)
+principal.BTlog.clicked.connect(log)
+cadastro.BTCad1.clicked.connect(cadastro_jogador)
+login.BTlog1.clicked.connect(logar)
+game.jogo1.clicked.connect(Snake)
+
+
+principal.show()
+app.exec()
+
 
