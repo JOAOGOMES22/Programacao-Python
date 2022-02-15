@@ -101,5 +101,3 @@ game.jogo2.clicked.connect(Jogo_2_Shooter.App)
 
 principal.show()
 app.exec()
-
-

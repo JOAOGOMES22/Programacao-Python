@@ -53,7 +53,7 @@ class Snake:
     def __init__(self):
         """Inicia o pyxel, configura as variáveis iniciais do jogo e o executa."""
 
-        pyxel.init(WIDTH, HEIGHT, title="Snake!", fps=10, capture_scale=4)
+        pyxel.init(WIDTH, HEIGHT, title="Snake!", fps=20, capture_scale=4)
         self.Atualiza()
         pyxel.run(self.update, self.design)
 
@@ -197,3 +197,4 @@ class Snake:
 
         text_width = len(text) * char_width
         return (page_width - text_width) // 2
+
