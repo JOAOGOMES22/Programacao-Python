@@ -39,7 +39,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>imagens/Joana Game (1).png</pixmap>
+     <pixmap>imagens/Joana Game (2).png</pixmap>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -122,7 +122,7 @@ border-radius: 10px;</string>
     <property name="font">
      <font>
       <family>League Spartan</family>
-      <pointsize>17</pointsize>
+      <pointsize>15</pointsize>
      </font>
     </property>
     <property name="tabletTracking">
@@ -182,7 +182,7 @@ border-radius: 10px;
     <property name="font">
      <font>
       <family>League Spartan</family>
-      <pointsize>17</pointsize>
+      <pointsize>15</pointsize>
      </font>
     </property>
     <property name="tabletTracking">
@@ -202,7 +202,7 @@ border-radius: 10px;</string>
      <bool>true</bool>
     </property>
     <property name="echoMode">
-     <enum>QLineEdit::Password</enum>
+     <enum>QLineEdit::Normal</enum>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -247,7 +247,9 @@ border-radius: 10px;</string>
     <property name="font">
      <font>
       <family>League Spartan</family>
-      <pointsize>17</pointsize>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="tabletTracking">
@@ -312,7 +314,7 @@ border-radius: 10px;</string>
     <property name="font">
      <font>
       <family>League Spartan</family>
-      <pointsize>17</pointsize>
+      <pointsize>15</pointsize>
      </font>
     </property>
     <property name="tabletTracking">
@@ -330,6 +332,9 @@ border-radius: 10px;</string>
     </property>
     <property name="frame">
      <bool>true</bool>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -374,7 +379,7 @@ border-radius: 10px;</string>
     <property name="font">
      <font>
       <family>League Spartan</family>
-      <pointsize>17</pointsize>
+      <pointsize>15</pointsize>
      </font>
     </property>
     <property name="tabletTracking">

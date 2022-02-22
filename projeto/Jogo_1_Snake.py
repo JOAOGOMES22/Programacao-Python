@@ -19,9 +19,9 @@ Point = namedtuple("Point", ["x", "y"])
 #############
 
 COL_BACKGROUND = 10
-COL_BODY = 9
-COL_HEAD = 4
-COL_DEATH = 3
+COL_BODY = 3
+COL_HEAD = 11
+COL_DEATH = 11
 COL_APPLE = 8
 
 TEXT_DEATH = ["Fim de Jogo", "(Q)UIT", "(R)ESTART"]
@@ -32,8 +32,8 @@ WIDTH = 45
 HEIGHT = 50
 
 HEIGHT_SCORE = pyxel.FONT_HEIGHT
-COL_SCORE = 1
-COL_SCORE_BACKGROUND = 6
+COL_SCORE = 0
+COL_SCORE_BACKGROUND = 11
 
 UP = Point(0, -1)
 DOWN = Point(0, 1)
@@ -146,7 +146,6 @@ class Snake:
 
         pyxel.stop()
         pyxel.play(0, 1)
-
   
     # Logica de desenho #
   

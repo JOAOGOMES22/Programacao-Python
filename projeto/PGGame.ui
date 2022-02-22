@@ -36,7 +36,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>imagens/Joana Game (1).png</pixmap>
+     <pixmap>imagens/Joana Game (2).png</pixmap>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -45,7 +45,7 @@
    <widget class="QPushButton" name="jogo1">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>70</x>
       <y>410</y>
       <width>161</width>
       <height>41</height>
@@ -69,7 +69,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>70</x>
       <y>250</y>
       <width>161</width>
       <height>151</height>
@@ -82,28 +82,12 @@
      <pixmap>imagens/snake.jpg</pixmap>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>270</y>
-      <width>311</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>imagens/shooter.png</pixmap>
-    </property>
-   </widget>
    <widget class="QPushButton" name="jogo2">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>270</x>
       <y>410</y>
-      <width>311</width>
+      <width>221</width>
       <height>41</height>
      </rect>
     </property>
@@ -120,6 +104,22 @@
     </property>
     <property name="text">
      <string>Shooter</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>250</y>
+      <width>231</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>imagens/shooter1.png</pixmap>
     </property>
    </widget>
   </widget>

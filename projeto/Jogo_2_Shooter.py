@@ -308,3 +308,4 @@ class App:
         draw_list(blasts)
         pyxel.text(43, 66, "GAME OVER", 8)
         pyxel.text(31, 126, "- PRESS ENTER -", 13)
+
